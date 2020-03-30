@@ -1,24 +1,2 @@
-# vue-project2
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+这是由之前老项目用vue-cli4更新后的项目，删除了所有注释
+笔记在老版本项目里有详细介绍： [Vue-project](https://github.com/Code7s/Vue-project)
