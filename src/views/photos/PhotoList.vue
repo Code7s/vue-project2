@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     getCategory () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getimgcategory').then(result => {
+      this.$http.get('api/getimgcategory').then(result => {
         if (result.data.status === 0) {
           result.data.message.unshift({ title: '全部', id: 0 })
           this.allcate = result.data.message
@@ -49,7 +49,7 @@ export default {
       })
     },
     getImgList (cateid) {
-      this.$http.get('http://www.liulongbin.top:3005/api/getimages/' + cateid).then(result => {
+      this.$http.get('api/getimages/' + cateid).then(result => {
         if (result.data.status === 0) {
           this.imgList = result.data.message
         }

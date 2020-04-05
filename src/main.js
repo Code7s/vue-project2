@@ -10,7 +10,7 @@ import 'mint-ui/lib/style.css'
 import moment from 'moment'
 import VuePreview from 'vue2-preview'
 Vue.use(VuePreview)
-// axios.defaults.baseURL = 'http://www.liulongbin.top:3005'
+axios.defaults.baseURL = 'http://www.liulongbin.top:3005'
 Vue.prototype.$http = axios
 
 Vue.filter('dateFormat', function (dataStr, pattern = 'YYYY-MM-DD') {

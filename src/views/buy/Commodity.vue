@@ -32,7 +32,7 @@ export default {
   methods: {
     getCommodityList () {
       this.$http
-        .get('http://www.liulongbin.top:3005/api/getgoods?pageindex=' + this.pageIndex)
+        .get('api/getgoods?pageindex=' + this.pageIndex)
         .then(result => {
           if (result.data.status === 0) {
             this.commodityList = this.commodityList.concat(result.data.message)

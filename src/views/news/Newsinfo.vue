@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     getNewsInfo () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getnew/' + this.id).then(result => {
+      this.$http.get('api/getnew/' + this.id).then(result => {
         if (result.data.status === 0) {
           this.newsInfo = result.data.message[0]
         } else {

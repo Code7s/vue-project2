@@ -6,7 +6,7 @@
         <img :src="item.thumb_path" alt />
         <div class="info">
           <h3>{{item.title}}</h3>
-          <p>
+          <p class="price-info">
             <span>¥{{item.sell_price}}</span>
             <shopcarnum :count="$store.getters.getShopCount[item.id]" :shopid="item.id"></shopcarnum>
             <a href="#" @click.prevent="remove(item.id,index)">删除</a>
@@ -41,7 +41,7 @@ export default {
         return false
       } else {
         this.$http
-          .get('http://www.liulongbin.top:3005/api/goods/getshopcarlist/' + idArr.join(','))
+          .get('api/goods/getshopcarlist/' + idArr.join(','))
           .then(result => {
             if (result.data.status === 0) {
               this.cardata = result.data.message
@@ -91,13 +91,16 @@ export default {
         text-overflow: ellipsis;
       }
       p {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         margin: 0;
         span {
           color: red;
           font-size: 20px;
         }
         a {
-          margin-left: 10px;
+          margin-left: 15px;
         }
       }
     }

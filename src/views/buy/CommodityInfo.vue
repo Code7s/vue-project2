@@ -49,70 +49,70 @@
 </template>
 
 <script>
-import swiper from '../../components/swiper.vue'
-import numbox from '../../components/buy_numbox.vue'
-import buyintorduce from '../buy/BuyIntroduce.vue'
-import buycomment from '../../components/comment.vue'
+import swiper from "../../components/swiper.vue";
+import numbox from "../../components/buy_numbox.vue";
+import buyintorduce from "../buy/BuyIntroduce.vue";
+import buycomment from "../../components/comment.vue";
 export default {
-  data () {
+  data() {
     return {
       id: parseInt(this.$route.params.id),
       bannerList: [],
       info: [],
       ballFlag: false,
       count: 1
-    }
+    };
   },
-  created () {
-    this.getBanner()
-    this.getInfo()
+  created() {
+    this.getBanner();
+    this.getInfo();
   },
   methods: {
-    getBanner () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getthumimages/' + this.id).then(result => {
+    getBanner() {
+      this.$http.get("api/getthumimages/" + this.id).then(result => {
         if (result.data.status === 0) {
-          this.bannerList = result.data.message
+          this.bannerList = result.data.message;
         }
-      })
+      });
     },
-    getInfo () {
-      this.$http.get('http://www.liulongbin.top:3005/api/goods/getinfo/' + this.id).then(result => {
+    getInfo() {
+      this.$http.get("api/goods/getinfo/" + this.id).then(result => {
         if (result.data.status === 0) {
-          this.info = result.data.message[0]
+          this.info = result.data.message[0];
         }
-      })
+      });
     },
-    beforEnter (el) {
-      el.style.transform = 'translate(0,0)'
+    beforEnter(el) {
+      el.style.transform = "translate(0,0)";
     },
-    enter (el, done) {
-      const ballPosition = this.$refs.ball.getBoundingClientRect()
+    enter(el, done) {
+      const ballPosition = this.$refs.ball.getBoundingClientRect();
       const badgePosition = document
-        .getElementById('badge')
-        .getBoundingClientRect()
-      const xDist = badgePosition.left - ballPosition.left
-      const yDist = badgePosition.top - ballPosition.top
-      // el.offsetWidth
-      el.style.transform = `translate(${xDist}px,${yDist}px)`
-      el.style.transition = 'all .5s cubic-bezier(.4,-0.3,1,.68)'
-      done()
+        .getElementById("badge")
+        .getBoundingClientRect();
+      const xDist = badgePosition.left - ballPosition.left;
+      const yDist = badgePosition.top - ballPosition.top;
+      el.offsetWidth;
+      el.style.transform = `translate(${xDist}px,${yDist}px)`;
+      el.style.transition = "all .5s cubic-bezier(.4,-0.3,1,.68)";
+      done();
     },
-    afterEnter (el) {
-      this.ballFlag = !this.ballFlag
+    afterEnter(el) {
+      this.ballFlag = !this.ballFlag;
     },
-    addToShopCar () {
+    getNumboxCount(data) {
+      this.count = data
+    },
+    addToShopCar() {
       var carData = {
         id: this.id,
         num: parseInt(this.count),
         price: this.info.sell_price,
         option: true
-      }
-      this.$store.commit('addToCar', carData)
-      this.ballFlag = !this.ballFlag
+      };
+      this.$store.commit("addToCar", carData);
+      this.ballFlag = !this.ballFlag;
     },
-    getNumboxCount (data) {
-      this.count = data
-    }
   },
   components: {
     swiper,
@@ -137,7 +137,7 @@ export default {
       }
     }
   }
-  .mint-button--small{
+  .mint-button--small {
     margin-right: 10px;
   }
   .new-price {

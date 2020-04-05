@@ -30,7 +30,7 @@ export default {
   methods: {
     getComments () {
       this.$http
-        .get('http://www.liulongbin.top:3005/api/getcomments/' + this.id + '?pageindex=' + this.pageIndex)
+        .get('api/getcomments/' + this.id + '?pageindex=' + this.pageIndex)
         .then(result => {
           if (result.data.status === 0) {
             this.commentList = this.commentList.concat(result.data.message)
@@ -44,7 +44,7 @@ export default {
         return Toast('评论内容不能为空！')
       }
       this.$http
-        .post('http://www.liulongbin.top:3005/api/postcomment/' + this.id, {
+        .post('api/postcomment/' + this.id, {
           content: this.msg.trim()
         })
         .then(result => {

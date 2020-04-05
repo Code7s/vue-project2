@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     getNews () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getnewslist').then(result => {
+      this.$http.get('api/getnewslist').then(result => {
         if (result.data.status === 0) {
           this.newsList = result.data.message
         } else {

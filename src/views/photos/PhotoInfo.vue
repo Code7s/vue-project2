@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getNewsInfo () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getnew/' + this.id).then(result => {
+      this.$http.get('api/getnew/' + this.id).then(result => {
         if (result.data.status === 0) {
           this.newsinfo = result.data.message[0]
         } else {
@@ -45,7 +45,7 @@ export default {
       })
     },
     getThumbnail () {
-      this.$http.get('http://www.liulongbin.top:3005/api/getthumimages/' + this.id).then(result => {
+      this.$http.get('api/getthumimages/' + this.id).then(result => {
         if (result.data.status === 0) {
           result.data.message.forEach(item => {
             item.w = 600

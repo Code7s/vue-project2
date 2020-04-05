@@ -19,7 +19,7 @@ export default {
   methods: {
     getIntroduce () {
       this.$http
-        .get('http://www.liulongbin.top:3005/api/goods/getdesc/' + this.$route.params.id)
+        .get('api/goods/getdesc/' + this.$route.params.id)
         .then(result => {
           if (result.data.status === 0) {
             this.introduce = result.data.message[0]
